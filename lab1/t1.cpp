@@ -20,7 +20,8 @@ enum Menu{
     Zad5,
     Zad6,
     Zad7,
-    Quit
+    Quit,
+    SomethingElse
 };
 
 void zad1();
@@ -54,40 +55,40 @@ int main()
 		cin >> s;
 		cin.ignore();
 
-        i = str2int(s);
+        //i = str2int(s);
 
-        cout<< i <<endl;
+        //cout<< i <<endl;
 
-		switch (choiceOption(i)){
-		case 1:
+		switch (choiceOption(s)){
+		case Zad1:
 			cout << endl << "	=====	ZADANIE " << i << "	=====" <<endl;
 	 		zad1();
 	 		break;
-		case 2:
+		case Zad2:
 			cout << endl << "	=====	ZADANIE " << i << "	====="<<endl;
 	 		zad2();
 	 		break;
-		case 3:
+		case Zad3:
 			cout << endl << "	=====	ZADANIE " << i << "	====="<<endl;
 	 		zad3();
 	 		break;
-		case 4:
+		case Zad4:
 			cout << endl << "	=====	ZADANIE " << i << "	====="<<endl;
 	 		zad4();
 	 		break;
-		case 5:
+		case Zad5:
 			cout << endl << "	=====	ZADANIE " << i << "	====="<<endl;
 	 		zad5();
 	 		break;
-		case 6:
+		case Zad6:
 			cout << endl << "	=====	ZADANIE " << i << "	====="<<endl;
 	 		zad6();
 	 		break;
-	 	case 7:
+	 	case Zad7:
 			cout << endl << "	=====	ZADANIE " << i << "	====="<<endl;
 	 		zad7();
 	 		break;
-		case 8:
+		case Quit:
 			loop = false;
 	 		break;
 		default:
@@ -268,6 +269,7 @@ Menu choiceOption(string input){
     if( input == "6" ) return Zad6;
     if( input == "7" ) return Zad7;
     if( input == "8" ) return Quit;
+    return SomethingElse;
 }
 
 /*
