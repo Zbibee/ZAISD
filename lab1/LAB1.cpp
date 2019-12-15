@@ -11,7 +11,9 @@ void zad3();
 void zad4();
 void zad5();
 void zad6();
+void zad7();
 int fibonnaciRec(int l);
+int silnia(int i);
 
 int main()
 {
@@ -25,7 +27,8 @@ int main()
 		<< "3 -> Obliczanie n–tego wyrazu ci¹gu Fibonacciego" <<endl
 		<< "4 -> Reurencyjne obliczanie n–tego wyrazu ci¹gu Fibonacciego" <<endl
 		<< "5 -> Miejsca zerowe funkcji kwadratowej" <<endl
-		<< "6 -> Zamknij program" << endl;
+		<< "6 -> Oblicza silnia" <<endl
+		<< "7 -> Zamknij program" << endl;
 	
 		cout<< "Wybor: ";
 		cin >> i;
@@ -52,6 +55,10 @@ int main()
 	 		zad5();
 	 		break;
 		case 6:
+			cout << endl << "	=====	ZADANIE " << i << "	====="<<endl; 
+	 		zad6();
+	 		break;
+		case 7:
 			loop = false;
 	 		break;
 		default:
@@ -175,6 +182,25 @@ void zad5(){
 			x1 = (-b) / (2*a);
 			cout << "x1: " << x1 <<endl;
 		}
+}
+
+void zad6(){
+	int n=0;
+	cout<< "Program wylicza silnia z danej liczby n" <<endl
+		<< "Podaj wartosc n:";
+	cin >> n;
+	cin.ignore();
+	cout<< "Silnia z liczby " << n << " wynosi " << silnia(n) <<endl;
+	silnia(n);
+}
+
+int silnia(int i){
+	if(i == 0){
+		return 1;
+	}
+	else{
+		return i * silnia(i-1);
+	}
 }
 
 
