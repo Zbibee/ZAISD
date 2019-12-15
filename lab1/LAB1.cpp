@@ -10,31 +10,65 @@ void zad2();
 void zad3();
 void zad4();
 void zad5();
+void zad6();
 void p(int i);
 int fibonnaciRec(int l);
 
 int main()
 {
 	bool loop = true;
-	cout<< "1 -> Zlicz ilosc znakow w pliku txt" <<endl
-		<< "2 ->"
-	while(loop){
-	switch i{
-	case 1:
-	case 2:
-	case 3:
-	case 4:
-	case 5:
-	default:
-	}
+	int i = 0;
 	
-	} 
-	cout<< "	=====	ZADANIE 	" << i << "		=====" 
+	
+	
+	while(loop){
+		cout << endl << "========================================="<< endl
+		<< "1 -> Zlicz ilosc znakow w pliku txt" <<endl
+		<< "2 -> Analizator leksykalny" <<endl
+		<< "3 -> Obliczanie n–tego wyrazu ci¹gu Fibonacciego" <<endl
+		<< "4 -> Reurencyjne obliczanie n–tego wyrazu ci¹gu Fibonacciego" <<endl
+		<< "5 -> Miejsca zerowe funkcji kwadratowej" <<endl
+		<< "6 -> Zamknij program" << endl;
+	
+		cout<< "Wybor: ";
+		cin >> i;
+		cin.ignore();
+		switch (i){
+		case 1:
+			cout << endl << "	=====	ZADANIE " << i << "	=====" <<endl; 
+	 		zad1();
+	 		break;
+		case 2:
+			cout << endl << "	=====	ZADANIE " << i << "	====="<<endl;
+	 		zad2();
+	 		break;
+		case 3:
+			cout << endl << "	=====	ZADANIE " << i << "	====="<<endl; 
+	 		zad3();
+	 		break;
+		case 4:
+			cout << endl << "	=====	ZADANIE " << i << "	====="<<endl; 
+	 		zad4();
+	 		break;
+		case 5:
+			cout << endl << "	=====	ZADANIE " << i << "	====="<<endl; 
+	 		zad5();
+	 		break;
+		case 6:
+			loop = false;
+	 		break;
+		default:
+			cout<< "Nie poprawna odpowiedz!" <<endl;
+			
+		}
+	
+	} /*
+	cout<< "	=====	ZADANIE 	" << i << "		=====" ;
  	zad1();
  	zad2();
  	zad3();
  	zad4();
- 	zad5();
+ 	zad5();*/
     return 0;
 }
 
