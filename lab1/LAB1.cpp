@@ -11,15 +11,12 @@ void zad3();
 void zad4();
 void zad5();
 void zad6();
-void p(int i);
 int fibonnaciRec(int l);
 
 int main()
 {
 	bool loop = true;
 	int i = 0;
-	
-	
 	
 	while(loop){
 		cout << endl << "========================================="<< endl
@@ -58,17 +55,9 @@ int main()
 			loop = false;
 	 		break;
 		default:
-			cout<< "Nie poprawna odpowiedz!" <<endl;
-			
+			cout<< "Nie poprawna odpowiedz!" <<endl;	
 		}
-	
-	} /*
-	cout<< "	=====	ZADANIE 	" << i << "		=====" ;
- 	zad1();
- 	zad2();
- 	zad3();
- 	zad4();
- 	zad5();*/
+	} 
     return 0;
 }
 
@@ -126,9 +115,9 @@ void zad3(){
 	cin.ignore();
 	a = 1;
 	b = 1;
-	cout<< "a = " << a <<endl;
-	cout<< "b = " << b <<endl;
-	cout<< "liczba = " << number <<endl;
+	//cout<< "a = " << a <<endl;
+	//cout<< "b = " << b <<endl;
+	//cout<< "liczba = " << number <<endl;
 	if (number <= 2)
 		cout<< "Wynik: " << a <<endl;
 	else{
@@ -137,16 +126,16 @@ void zad3(){
 			a = b;
 			b = c;
 		}
-		cout<< "Wynik: " << c <<endl;
+		cout<< number << " liczba ciagu fibbonaciego wynosi: " << c <<endl;
 	}	
 }
 
 void zad4(){
-	int number;
+	int number = 0;
 	cout<< "Podaj ktora liczba ciagu fibonacciego chcesz otrzymac: " <<endl;
 	cin >> number;
 	cin.ignore();
-	fibonnaciRec(number);
+	cout<< number << " liczba ciagu fibbonaciego wynosi: " << fibonnaciRec(number) <<endl;
 
 }
 
