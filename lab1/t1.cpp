@@ -6,8 +6,23 @@
 #include <random>
 #include <chrono>
 
-
+/*
+Author: Zbibee
+c++ 11
+*/
 using namespace std;
+
+enum Menu{
+    Zad1,
+    Zad2,
+    Zad3,
+    Zad4,
+    Zad5,
+    Zad6,
+    Zad7,
+    Quit
+};
+
 void zad1();
 void zad2();
 void zad3();
@@ -17,28 +32,35 @@ void zad6();
 void zad7();
 int fibonnaciRec(int l);
 int silnia(int i);
+Menu choiceOption(string input);
 
 int main()
 {
 	bool loop = true;
 	int i = 0;
-	
+    string s;
 	while(loop){
 		cout << endl << "========================================="<< endl
 		<< "1 -> Zlicz ilosc znakow w pliku txt" <<endl
 		<< "2 -> Analizator leksykalny" <<endl
-		<< "3 -> Obliczanie n–tego wyrazu ci¹gu Fibonacciego" <<endl
-		<< "4 -> Reurencyjne obliczanie n–tego wyrazu ci¹gu Fibonacciego" <<endl
+		<< "3 -> Obliczanie n tego wyrazu ciagu Fibonacciego" <<endl
+		<< "4 -> Reurencyjne obliczanie n tego wyrazu ciagu Fibonacciego" <<endl
 		<< "5 -> Miejsca zerowe funkcji kwadratowej" <<endl
 		<< "6 -> Oblicza silnia" <<endl
-		<< "7 -> Zamknij program" << endl;
-	
+		<< "7 -> Symuluje rzut kostka" <<endl
+		<< "8 -> Zamknij program" << endl;
+
 		cout<< "Wybor: ";
-		cin >> i;
+		cin >> s;
 		cin.ignore();
-		switch (i){
+
+        i = str2int(s);
+
+        cout<< i <<endl;
+
+		switch (choiceOption(i)){
 		case 1:
-			cout << endl << "	=====	ZADANIE " << i << "	=====" <<endl; 
+			cout << endl << "	=====	ZADANIE " << i << "	=====" <<endl;
 	 		zad1();
 	 		break;
 		case 2:
@@ -46,32 +68,33 @@ int main()
 	 		zad2();
 	 		break;
 		case 3:
-			cout << endl << "	=====	ZADANIE " << i << "	====="<<endl; 
+			cout << endl << "	=====	ZADANIE " << i << "	====="<<endl;
 	 		zad3();
 	 		break;
 		case 4:
-			cout << endl << "	=====	ZADANIE " << i << "	====="<<endl; 
+			cout << endl << "	=====	ZADANIE " << i << "	====="<<endl;
 	 		zad4();
 	 		break;
 		case 5:
-			cout << endl << "	=====	ZADANIE " << i << "	====="<<endl; 
+			cout << endl << "	=====	ZADANIE " << i << "	====="<<endl;
 	 		zad5();
 	 		break;
 		case 6:
-			cout << endl << "	=====	ZADANIE " << i << "	====="<<endl; 
+			cout << endl << "	=====	ZADANIE " << i << "	====="<<endl;
 	 		zad6();
 	 		break;
 	 	case 7:
-			cout << endl << "	=====	ZADANIE " << i << "	====="<<endl; 
+			cout << endl << "	=====	ZADANIE " << i << "	====="<<endl;
 	 		zad7();
 	 		break;
 		case 8:
 			loop = false;
 	 		break;
 		default:
-			cout<< "Nie poprawna odpowiedz!" <<endl;	
+			cout<< "Nie poprawna odpowiedz!" <<endl;
+			break;
 		}
-	} 
+	}
     return 0;
 }
 
@@ -82,7 +105,7 @@ void zad1(){
     file.open("TestZS.txt", ios::in);
     if(file.good() == true){
 		while(!file.eof()){
-        	file.get(c);	
+        	file.get(c);
         	count ++;
     	}
 	}
@@ -103,23 +126,22 @@ void zad2(){
 	        	counter = 0;
 	        	file.get(c);
 			}
-			
+
 	       	if( counter == 0){
 		       	if ((int('a')<= int(c) & int(c) <= int('z')) || (int('A')<= int(c) & int(c) <= int('Z'))){
-					cout<< c << " : " << "slowo" <<endl;   
+					cout<< c << " : " << "slowo" <<endl;
 				}
 				else if(int('0')<= int(c) & int(c) <= int('9')){
 				cout<< c << " : " << "liczba" <<endl;
 				}
 				else{
-					cout<< c << " : " << "znak specjalny" <<endl;	
+					cout<< c << " : " << "znak specjalny" <<endl;
 				}
 				counter ++;
-	        }  
+	        }
     	}
         file.close();
     }
-    system("PAUSE");
 }
 
 void zad3(){
@@ -141,7 +163,7 @@ void zad3(){
 			b = c;
 		}
 		cout<< number << " liczba ciagu fibbonaciego wynosi: " << c <<endl;
-	}	
+	}
 }
 
 void zad4(){
@@ -167,13 +189,13 @@ void zad5(){
 	cout<< "podaj wspolczynniki wielomianu kwadratowego a b c:" <<endl;
 	cin >> a;
 	cin.ignore();
-	
+
 	cin >> b;
 	cin.ignore();
-	
+
 	cin >> c;
 	cin.ignore();
-	
+
 	if(a == 0)
 		cout<< "to nie jest funkcja kwadratowa" <<endl;
 	else
@@ -214,40 +236,74 @@ void zad7(){
 	int kost = 0;
 	string c = "";
 	bool loop = true;
-	
-	
+
 	while(kost < 4){
-		cout<< "Program symuluje rzut kostk¹" <<endl
+		cout<< "Program symuluje rzut kostka" <<endl
 		<< "Ilu scienna kostka chcesz grac?: ";
 		cin >> kost;
 		cin.ignore();
-	
+
 		if(kost < 4){
-			cout<< "Kosta musi mieæ przynajmniej 4 œciany" <<endl;
-		}	
+			cout<< "Kosta musi miec przynajmniej 4 sciany" <<endl;
+		}
 	}
-	
-	while(c=="q" || c =="Q"){
-		std::default_random_engine random_generator(std::chrono::steady_clock::now().time_since_epoch().count());
-		std::uniform_int_distribution<int> distribution(1, kost);
-		cout<< "Wylosowano liczbê: " << distribution(random_generator) <<endl;
-		cout<< "Aby zakoñczyæ wybierz q, aby losowaæ kolejn¹ liczbê wybierz dowoln¹ zmienn¹"<<endl;
+
+	while( c != "q" && c !="Q"){
+        std::default_random_engine random_generator(std::chrono::steady_clock::now().time_since_epoch().count());
+        std::uniform_int_distribution<int> distribution(1, kost);
+        cout<< "Wylosowano liczbe: " << distribution(random_generator) <<endl;
+		cout<< "Aby zakonczyc wybierz q, aby losowac kolejna liczbe wybierz dowolna zmienna"<<endl;
 		cin >> c;
 		cin.ignore();
 	}
-	
+
 }
 
+Menu choiceOption(string input){
+    if( input == "1" ) return Zad1;
+    if( input == "2" ) return Zad2;
+    if( input == "3" ) return Zad3;
+    if( input == "4" ) return Zad4;
+    if( input == "5" ) return Zad5;
+    if( input == "6" ) return Zad6;
+    if( input == "7" ) return Zad7;
+    if( input == "8" ) return Quit;
+}
+
+/*
+int to_int(char const *s)
+{
+     if ( s == NULL || *s == '\0' )
+        throw std::invalid_argument("null or empty string argument");
+
+     bool negate = (s[0] == '-');
+     if ( *s == '+' || *s == '-' )
+         ++s;
+
+     if ( *s == '\0')
+        throw std::invalid_argument("sign character only.");
+
+     int result = 0;
+     while(*s)
+     {
+          if ( *s >= '0' && *s <= '9' )
+          {
+              result = result * 10  - (*s - '0');  //assume negative number
+          }
+          else
+              throw std::invalid_argument("invalid input string");
+          ++s;
+     }
+     return negate ? result : -result; //-result is positive!
+}
+*/
 /*
 
 
     std::default_random_engine random_generator(std::chrono::steady_clock::now().time_since_epoch().count());
-    std::uniform_int_distribution<int> distribution(1, 10); 
+    std::uniform_int_distribution<int> distribution(1, 10);
     for(int i=0;i<10;++i){
         std::cout<<i<<". "<<distribution(random_generator)<<"\n";
 
 }
 */
-	
-
-
