@@ -35,32 +35,39 @@ void printVector(vector<int> v);
 
 int main()
 {
-
-    vector<int> v1 = randomVector(5, 0, 10);
-    printVector(v1);
+    vector<int> v;
     bool loop = true;
     int i = 0;
     string s;
+    struct TEXT text;
+    int sizeVec = 10,
+        beginVec = 0,
+        endVec = 100;
+    int tab[4];
+
     while(loop){
-        struct TEXT t;
-        cout << t.menuTxt;
+        cout << text.menuTxt;
 		cin >> s;
 		cin.ignore();
-		int sizeTab = 10;
-		int tab[10];
+
+		//v = randomVector(sizeVec, beginVec, endVec);
+        //printVector(v);
 
 		switch (choiceOption(s)){
 		case Zad1:
+
 			cout << endl << "	=====	ZADANIE " << s << "	=====" <<endl;
-	 		zad1(tab, sizeTab);
+			v = randomVector(sizeVec, beginVec, endVec);
+            printVector(v);
+	 		zad1(v, v.size());
 	 		break;
 		case Zad2:
 			cout << endl << "	=====	ZADANIE " << s << "	====="<<endl;
-	 		zad2(tab, sizeTab);
+	 		zad2(v, sizeVec);
 	 		break;
 		case Zad3:
 			cout << endl << "	=====	ZADANIE " << s << "	====="<<endl;
-	 		zad3(tab, sizeTab);
+	 		zad3(v, sizeVec);
 	 		break;
 		/*
 		case Zad4:

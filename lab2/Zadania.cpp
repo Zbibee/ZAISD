@@ -26,9 +26,9 @@ const string TEXT::menuTxt = "\n=========================================\n \
 8 -> Zamknij program\nWybor: ";
 */
 vector <int> randomVector(int sizeTab, int beginRange, int endRange);
-void zad1(int * tab, int sizeTab);
-void zad2(int * tab, int sizeTab);
-void zad3(int * tab, int sizeTab);
+void zad1(vector<int> v, int sizeTab);
+void zad2(vector<int> v, int sizeTab);
+void zad3(vector<int> v, int sizeTab);
 
 /*
 void zad4();
@@ -37,24 +37,28 @@ void zad6();
 void zad7();
 */
 
-void zad1(int * tab, int size){
+void zad1(vector<int> v, int sizeVec){
     int j, k;
-	for(int i = 2; i <size; i++){
-		k = tab[i];
+	for(int i = 2; i <sizeVec; i++){
+		k = v.at(i);
 		j = i -1;
-		while(k < tab[j]){
-			tab[j+1] = tab[j];
+		while(k < v.at(j)){
+			v.at(j+1) = v.at(j);
 			j = j-1;
 		}
-		tab[j+1] = k;
+		v.at(j+1) = k;
+	}
+
+	for(int i : v){
+        cout << i <<endl;
 	}
 }
 
-void zad2(int * tab, int size){
+void zad2(vector<int> v, int sizeVec){
 
 }
 
-void zad3(int * tab, int size){
+void zad3(vector<int> v, int sizeVec){
 
 }
 /*
