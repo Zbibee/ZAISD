@@ -16,7 +16,6 @@ You must use minimum -sdk=c++0x (aka c++11), because i use default_random_engine
 */
 using namespace std;
 
-
 enum Menu{
     Zad1,
     Zad2,
@@ -38,8 +37,7 @@ int main()
     string s;
     while(loop){
         struct TEXT t;
-        cout << t.tresc;
-
+        cout << t.menuTxt;
 		cin >> s;
 		cin.ignore();
 
@@ -94,5 +92,3 @@ Menu choiceOption(string input){
     if( input == "8" ) return Quit;
     return AnotherOption;
 }
-
-

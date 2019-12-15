@@ -10,10 +10,10 @@ using namespace std;
 
 struct TEXT{
 public:
-   static const string tresc;
+   static const string menuTxt;
 };
 
-const string TEXT::tresc = "\n=========================================\n \
+const string TEXT::menuTxt = "\n=========================================\n \
 1 -> Zlicz ilosc znakow w pliku txt\n \
 2 -> Analizator leksykalny\n \
 3 -> Obliczanie n tego wyrazu ciagu Fibonacciego\n \
