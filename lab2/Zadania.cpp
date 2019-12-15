@@ -25,10 +25,10 @@ const string TEXT::menuTxt = "\n=========================================\n \
 7 -> Symuluje rzut kostka\n \
 8 -> Zamknij program\nWybor: ";
 */
-vector<int> randomTable(int size, int beginRange, int endRange);
-void zad1(int * tab, int size);
-void zad2(int * tab, int size);
-void zad3(int * tab, int size);
+vector <int> randomVector(int sizeTab, int beginRange, int endRange);
+void zad1(int * tab, int sizeTab);
+void zad2(int * tab, int sizeTab);
+void zad3(int * tab, int sizeTab);
 
 /*
 void zad4();
@@ -79,8 +79,18 @@ void zad7(){
 }
 */
 
-vector<int> randomTable(int size, int beginRange, int endRange){
+vector <int> randomVector(int sizeVec, int beginRange, int endRange){
+
 vector <int> v;
-v.push_back(2);
+std::default_random_engine random_generator(std::chrono::steady_clock::now().time_since_epoch().count());
+std::uniform_int_distribution<int> distribution(beginRange, endRange);
+
+while(sizeVec > 0){
+    v.push_back(distribution(random_generator));
+    sizeVec--;
+}
+//for(int i: v){
+    //    cout<< i << endl;
+  //  }
 return v;
 }

@@ -8,6 +8,7 @@
 #include <stdexcept>
 #include <typeinfo>
 #include <cmath>
+#include <vector>
 
 #include "Zadania.cpp"
 
@@ -30,9 +31,13 @@ enum Menu{
 };
 
 Menu choiceOption(string input);
+void printVector(vector<int> v);
 
 int main()
 {
+
+    vector<int> v1 = randomVector(5, 0, 10);
+    printVector(v1);
     bool loop = true;
     int i = 0;
     string s;
@@ -98,3 +103,10 @@ Menu choiceOption(string input){
     return AnotherOption;
 }
 
+void printVector(vector<int> v){
+    cout<<  "Vector: ";
+    for(int i: v){
+       cout<< i << " | " ;
+    }
+    cout<< endl;
+}
