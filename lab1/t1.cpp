@@ -5,10 +5,13 @@
 #include <cmath>
 #include <random>
 #include <chrono>
+#include <stdexcept>
+#include <typeinfo>
+#include <cmath>
 
 /*
 Author: Zbibee
-c++ 11
+You must use minimum -sdk=c++0x (aka c++11), because i use default_random_engine
 */
 using namespace std;
 
@@ -55,37 +58,33 @@ int main()
 		cin >> s;
 		cin.ignore();
 
-        //i = str2int(s);
-
-        //cout<< i <<endl;
-
 		switch (choiceOption(s)){
 		case Zad1:
-			cout << endl << "	=====	ZADANIE " << i << "	=====" <<endl;
+			cout << endl << "	=====	ZADANIE " << s << "	=====" <<endl;
 	 		zad1();
 	 		break;
 		case Zad2:
-			cout << endl << "	=====	ZADANIE " << i << "	====="<<endl;
+			cout << endl << "	=====	ZADANIE " << s << "	====="<<endl;
 	 		zad2();
 	 		break;
 		case Zad3:
-			cout << endl << "	=====	ZADANIE " << i << "	====="<<endl;
+			cout << endl << "	=====	ZADANIE " << s << "	====="<<endl;
 	 		zad3();
 	 		break;
 		case Zad4:
-			cout << endl << "	=====	ZADANIE " << i << "	====="<<endl;
+			cout << endl << "	=====	ZADANIE " << s << "	====="<<endl;
 	 		zad4();
 	 		break;
 		case Zad5:
-			cout << endl << "	=====	ZADANIE " << i << "	====="<<endl;
+			cout << endl << "	=====	ZADANIE " << s << "	====="<<endl;
 	 		zad5();
 	 		break;
 		case Zad6:
-			cout << endl << "	=====	ZADANIE " << i << "	====="<<endl;
+			cout << endl << "	=====	ZADANIE " << s << "	====="<<endl;
 	 		zad6();
 	 		break;
 	 	case Zad7:
-			cout << endl << "	=====	ZADANIE " << i << "	====="<<endl;
+			cout << endl << "	=====	ZADANIE " << s << "	====="<<endl;
 	 		zad7();
 	 		break;
 		case Quit:
@@ -152,9 +151,6 @@ void zad3(){
 	cin.ignore();
 	a = 1;
 	b = 1;
-	//cout<< "a = " << a <<endl;
-	//cout<< "b = " << b <<endl;
-	//cout<< "liczba = " << number <<endl;
 	if (number <= 2)
 		cout<< "Wynik: " << a <<endl;
 	else{
@@ -234,19 +230,25 @@ int silnia(int i){
 }
 
 void zad7(){
-	int kost = 0;
+    string tmp;
+    double r = 0;
 	string c = "";
-	bool loop = true;
 
-	while(kost < 4){
-		cout<< "Program symuluje rzut kostka" <<endl
-		<< "Ilu scienna kostka chcesz grac?: ";
-		cin >> kost;
+    cout<< "Program symuluje rzut kostka" <<endl;
+	while(!(kost >= 4 && fmod(kost,1.0) == 0.0)){
+		cout<< "Ilu scienna kostka chcesz grac?: ";
+		cin >> tmp;
 		cin.ignore();
 
-		if(kost < 4){
-			cout<< "Kosta musi miec przynajmniej 4 sciany" <<endl;
-		}
+        try{
+            kost = std::stod(tmp);
+            if(kost < 4 )
+                cout<< "Kosta musi miec przynajmniej 4 sciany" <<endl;
+            if(fmod(kost,1.0) != 0)
+                cout<< "Liczba scian musibyc liczba calkowica dodatnia" << endl;
+        }catch(const std::invalid_argument& e){
+            cout<< "Kosta musi miec przynajmniej 4 sciany" <<endl;
+        }
 	}
 
 	while( c != "q" && c !="Q"){
@@ -272,40 +274,4 @@ Menu choiceOption(string input){
     return SomethingElse;
 }
 
-/*
-int to_int(char const *s)
-{
-     if ( s == NULL || *s == '\0' )
-        throw std::invalid_argument("null or empty string argument");
 
-     bool negate = (s[0] == '-');
-     if ( *s == '+' || *s == '-' )
-         ++s;
-
-     if ( *s == '\0')
-        throw std::invalid_argument("sign character only.");
-
-     int result = 0;
-     while(*s)
-     {
-          if ( *s >= '0' && *s <= '9' )
-          {
-              result = result * 10  - (*s - '0');  //assume negative number
-          }
-          else
-              throw std::invalid_argument("invalid input string");
-          ++s;
-     }
-     return negate ? result : -result; //-result is positive!
-}
-*/
-/*
-
-
-    std::default_random_engine random_generator(std::chrono::steady_clock::now().time_since_epoch().count());
-    std::uniform_int_distribution<int> distribution(1, 10);
-    for(int i=0;i<10;++i){
-        std::cout<<i<<". "<<distribution(random_generator)<<"\n";
-
-}
-*/
