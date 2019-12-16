@@ -6,25 +6,37 @@
 #include <random>
 #include <chrono>
 #include <vector>
+#include <map>
 
 using namespace std;
 
 struct TEXT{
 public:
    static const string menuTxt;
+   std::map<int, string> menu;
+   TEXT(){
+   this->menu[1] = "Sortowanie przez proste wstawianie\n";
+   this->menu[2] = "Sortowanie przez wstawianie polowkowe\n";
+   this->menu[3] = "Sortowanie przez proste wybieranie\n";
+   this->menu[4] = "Sortowanie babelkowe\n";
+   this->menu[5] = "Sortowanie mieszane\n";
+   this->menu[6] = "Sortowanie metoda Shella\n";
+   this->menu[7] = "Zamknij program\n";
+   }
 };
 
 const string TEXT::menuTxt = "\n=========================================\n \
 1 -> Sortowanie przez proste wstawianie\n \
 2 -> Sortowanie przez wstawianie polowkowe\n \
-3 -> Sortowanie przez proste wybieranie\n ";
-/*
-4 -> Reurencyjne obliczanie n tego wyrazu ciagu Fibonacciego\n \
-5 -> Miejsca zerowe funkcji kwadratowej\n \
-6 -> Oblicza silnia\n \
-7 -> Symuluje rzut kostka\n \
-8 -> Zamknij program\nWybor: ";
-*/
+3 -> Sortowanie przez proste wybieranie\n \
+4 -> Sortowanie babelkowe\n \
+5 -> Sortowanie mieszane\n \
+6 -> Sortowanie metoda Shella\n \
+7 -> Zamknij program\nWybor: ";
+
+//std::map<int, string> TEXT::menu[1] = "haha"; // {{1, "aha"}, {2, "dupa"}};
+
+
 vector <int> randomVector(int sizeTab, int beginRange, int endRange);
 int* randomTabInt(int sizeTab, int beginRange, int endRange);
 void zad1(int * tab, int sizeTab);

@@ -36,11 +36,12 @@ void printTab(int * tab, int sizeTab, string text);
 int main()
 {
     //vector<int> v;
+
     bool loop = true;
     int i = 0;
     string s;
     struct TEXT text;
-    int sizeTab = 32,
+    int sizeTab = 12,
         beginRange = 0,
         endRange = 120;
     //int tab[sizeTab];
@@ -63,36 +64,42 @@ int main()
 		switch (choiceOption(s)){
 		case Zad1:
 			cout << endl << "	=====	ZADANIE " << s << "	=====" <<endl;
+			cout<< text.menu[stoi(s)] <<endl;
 			printTab(tab, sizeTab, "Przed: ");
             zad1(tab, sizeTab);
             printTab(tab, sizeTab, "Po   : ");
 	 		break;
 		case Zad2:
 			cout << endl << "	=====	ZADANIE " << s << "	====="<<endl;
+	 		cout<< text.menu[stoi(s)] <<endl;
 	 		printTab(tab, sizeTab, "Przed: ");
             zad2(tab, sizeTab);
             printTab(tab, sizeTab, "Po   : ");
 	 		break;
 		case Zad3:
 			cout << endl << "	=====	ZADANIE " << s << "	====="<<endl;
+	 		cout<< text.menu[stoi(s)] <<endl;
 	 		printTab(tab, sizeTab, "Przed: ");
             zad3(tab, sizeTab);
             printTab(tab, sizeTab, "Po   : ");
 	 		break;
 		case Zad4:
 			cout << endl << "	=====	ZADANIE " << s << "	====="<<endl;
+            cout<< text.menu[stoi(s)] <<endl;
             printTab(tab, sizeTab, "Przed: ");
             zad4(tab, sizeTab);
             printTab(tab, sizeTab, "Po   : ");
 	 		break;
 		case Zad5:
 			cout << endl << "	=====	ZADANIE " << s << "	====="<<endl;
+            cout<< text.menu[stoi(s)] <<endl;
             printTab(tab, sizeTab, "Przed: ");
             zad5(tab, sizeTab);
             printTab(tab, sizeTab, "Po   : ");
 	 		break;
 		case Zad6:
 			cout << endl << "	=====	ZADANIE " << s << "	====="<<endl;
+            cout<< text.menu[stoi(s)] <<endl;
             printTab(tab, sizeTab, "Przed: ");
             zad6(tab, sizeTab);
             printTab(tab, sizeTab, "Po   : ");
