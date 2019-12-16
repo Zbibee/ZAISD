@@ -25,68 +25,78 @@ enum Menu{
     Zad4,
     Zad5,
     Zad6,
-    Zad7,
     Quit,
     AnotherOption
 };
 
 Menu choiceOption(string input);
-void printVector(vector<int> v);
+//void printVector(vector<int> v);
+void printTab(int * tab, int sizeTab, string text);
 
 int main()
 {
-    vector<int> v;
+    //vector<int> v;
     bool loop = true;
     int i = 0;
     string s;
     struct TEXT text;
-    int sizeVec = 10,
-        beginVec = 0,
-        endVec = 100;
-    int tab[4];
+    int sizeTab = 12,
+        beginRange = 0,
+        endRange = 100;
+    //int tab[sizeTab];
+    //delete[] tab;
 
+    int *tab;
+    //delete[] tab1;
+    //std::default_random_engine random_generator(std::chrono::steady_clock::now().time_since_epoch().count());
+    //std::uniform_int_distribution<int> distribution(beginRange, endRange);
+
+    //for(int i=0; i< sizeTab; i++){
+    //    tab[i] = distribution(random_generator);
+    //}
     while(loop){
         cout << text.menuTxt;
 		cin >> s;
 		cin.ignore();
-
-		//v = randomVector(sizeVec, beginVec, endVec);
-        //printVector(v);
+        tab = randomTabInt(sizeTab, beginRange, endRange);
 
 		switch (choiceOption(s)){
 		case Zad1:
-
 			cout << endl << "	=====	ZADANIE " << s << "	=====" <<endl;
-			v = randomVector(sizeVec, beginVec, endVec);
-            printVector(v);
-	 		zad1(v, v.size());
+			printTab(tab, sizeTab, "Przed: ");
+            zad1(tab, sizeTab);
+            printTab(tab, sizeTab, "Po   : ");
 	 		break;
 		case Zad2:
 			cout << endl << "	=====	ZADANIE " << s << "	====="<<endl;
-	 		zad2(v, sizeVec);
+	 		printTab(tab, sizeTab, "Przed: ");
+            zad2(tab, sizeTab);
+            printTab(tab, sizeTab, "Po   : ");
 	 		break;
 		case Zad3:
 			cout << endl << "	=====	ZADANIE " << s << "	====="<<endl;
-	 		zad3(v, sizeVec);
+	 		printTab(tab, sizeTab, "Przed: ");
+            zad3(tab, sizeTab);
+            printTab(tab, sizeTab, "Po   : ");
 	 		break;
-		/*
 		case Zad4:
 			cout << endl << "	=====	ZADANIE " << s << "	====="<<endl;
-	 		zad4();
+            printTab(tab, sizeTab, "Przed: ");
+            zad4(tab, sizeTab);
+            printTab(tab, sizeTab, "Po   : ");
 	 		break;
 		case Zad5:
 			cout << endl << "	=====	ZADANIE " << s << "	====="<<endl;
-	 		zad5();
+            printTab(tab, sizeTab, "Przed: ");
+            zad5(tab, sizeTab);
+            printTab(tab, sizeTab, "Po   : ");
 	 		break;
 		case Zad6:
 			cout << endl << "	=====	ZADANIE " << s << "	====="<<endl;
-	 		zad6();
+            printTab(tab, sizeTab, "Przed: ");
+            zad6(tab, sizeTab);
+            printTab(tab, sizeTab, "Po   : ");
 	 		break;
-	 	case Zad7:
-			cout << endl << "	=====	ZADANIE " << s << "	====="<<endl;
-	 		zad7();
-	 		break;
-		*/
 		case Quit:
 			loop = false;
 	 		break;
@@ -95,6 +105,7 @@ int main()
 			break;
 		}
 	}
+	//delete[] tab;
     return 0;
 }
 
@@ -105,15 +116,21 @@ Menu choiceOption(string input){
     if( input == "4" ) return Zad4;
     if( input == "5" ) return Zad5;
     if( input == "6" ) return Zad6;
-    if( input == "7" ) return Zad7;
-    if( input == "8" ) return Quit;
+    if( input == "7" ) return Quit;
     return AnotherOption;
 }
-
+/*
 void printVector(vector<int> v){
     cout<<  "Vector: ";
     for(int i: v){
        cout<< i << " | " ;
+    }
+    cout<< endl;
+}*/
+void printTab(int * tab, int sizeTab, string text){
+    cout<< text;
+    for(int i=0; i<sizeTab; i++){
+       cout<< tab[i] << " | " ;
     }
     cout<< endl;
 }
