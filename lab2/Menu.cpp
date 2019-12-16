@@ -40,9 +40,9 @@ int main()
     int i = 0;
     string s;
     struct TEXT text;
-    int sizeTab = 12,
+    int sizeTab = 32,
         beginRange = 0,
-        endRange = 100;
+        endRange = 120;
     //int tab[sizeTab];
     //delete[] tab;
 
@@ -119,7 +119,8 @@ Menu choiceOption(string input){
     if( input == "7" ) return Quit;
     return AnotherOption;
 }
-/*
+/*6
+
 void printVector(vector<int> v){
     cout<<  "Vector: ";
     for(int i: v){

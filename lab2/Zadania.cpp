@@ -136,28 +136,28 @@ void zad5(int *tab, int sizeTab){
 void zad6(int *tab, int sizeTab){
     const int t = 4;
     int i, j, k, s, x;
-    int h[4] = {9,5,3,1};
+    int h[4] = {1,3,7,15};//9,5,3,1};
 
-    for(int m=0; m<t; m++) {
-    	k = h[m];
-    	s = -k;
-
-    	for (i = k+1; i < sizeTab; i++) {
-    		x = tab[i];
-    		j = i-k;
+    for(int m=0; m<t; m++) { // <=
+    	k = h[m]; // k=9
+    	s = -k;   // s = -9 //-k
+    	//stapsize = s
+        //s<=N-1
+    	for (i = k; i < sizeTab; i++) {// 10 ->12 //s-> k
+    		x = tab[i]; //x =tab[9]
+    		j = i-k;    //j = 9-9 = 0
 
     		if (s==0) {
     			s = -k;
     			s = s+1;
     			tab[s] = x;
 			}
-			while (x < tab[j]) {
-				tab[j+k]=tab[j];
-				j = j-k;
+			while (x < tab[j] && j>=0) { //tab[0]
+				tab[j+k]=tab[j]; //tab[9] = tab[0]
+				j = j-k;// j = -9
 			}
-			//
+			tab[j+k] = x; //tab[0] = tab[9]
 		}
-		tab[j+k] = x;
 	}
 }
 
