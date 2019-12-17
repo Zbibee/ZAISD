@@ -26,6 +26,8 @@ enum Menu{
     Zad4,
     Zad5,
     Zad6,
+    Zad7,
+    Zad8,
     Quit,
     AnotherOption
 };
@@ -95,6 +97,20 @@ int main()
             zad6(tab, sizeTab);
             printTab(tab, sizeTab, "Po   : ");
 	 		break;
+        case Zad7:
+			cout << endl << "	=====	ZADANIE " << s << "	====="<<endl;
+            cout<< text.menu[stoi(s)] <<endl;
+            printTab(tab, sizeTab, "Przed: ");
+            zad7(tab, sizeTab);
+            printTab(tab, sizeTab, "Po   : ");
+	 		break;
+        case Zad8:
+			cout << endl << "	=====	ZADANIE " << s << "	====="<<endl;
+            cout<< text.menu[stoi(s)] <<endl;
+            printTab(tab, sizeTab, "Przed: ");
+            zad8(tab, sizeTab);
+            printTab(tab, sizeTab, "Po   : ");
+	 		break;
 		case Quit:
 			loop = false;
 	 		break;
@@ -113,7 +129,9 @@ Menu choiceOption(string input){
     if( input == "4" ) return Zad4;
     if( input == "5" ) return Zad5;
     if( input == "6" ) return Zad6;
-    if( input == "7" ) return Quit;
+    if( input == "7" ) return Zad7;
+    if( input == "8" ) return Zad8;
+    if( input == "9" ) return Quit;
     return AnotherOption;
 }
 

@@ -20,7 +20,9 @@ public:
    this->menu[4] = "Sortowanie babelkowe\n";
    this->menu[5] = "Sortowanie mieszane\n";
    this->menu[6] = "Sortowanie metoda Shella\n";
-   this->menu[7] = "Zamknij program\n";
+   this->menu[7] = "Sortowanie stogowe\n";
+   this->menu[8] = "Sortowanie szybkie  metoda rekurencyjna\n";
+   this->menu[9] = "Zamknij program\n";
    }
 };
 
@@ -32,6 +34,10 @@ void zad3(int *tab, int sizeTab);
 void zad4(int *tab, int sizeTab);
 void zad5(int *tab, int sizeTab);
 void zad6(int *tab, int sizeTab);
+void zad7(int * tab, int size);
+void zad8(int *a, int n);
+void przesiewanie(int * tab, int p, int q);
+void sortuj(int *a, int q, int p);
 
 void zad1(int *tab, int sizeTab){
     int j=0, k=0;
@@ -150,6 +156,83 @@ void zad6(int *tab, int sizeTab){
 		}
 	}
 }
+
+void przesiewanie(int *tab, int p, int q){
+	int i, j, x;
+	i = q;
+	j = 2*i;
+	x = tab[i];
+
+	while (j < p){
+		if(j<p){
+			if(tab[j] < tab[j+1])
+				j += 1;
+
+			if(x >= tab[j])
+				goto stop;
+
+			tab[i] = tab[j];
+			i = j;
+			j = 2*i;
+		}
+	}
+	stop: tab[i] = x;
+}
+
+void zad7(int *tab, int size){
+	int q, p, x;
+
+	q = size/2;
+	p = size-1;
+
+	while (q>0){
+		q -= 1;
+		przesiewanie(tab, p, q);
+	};
+
+	while (p>0){
+		x = tab[0];
+		tab[0] = tab[p];
+		tab[p] = x;
+		p -= 1;
+		przesiewanie(tab, p, q);
+	};
+}
+
+void sortuj(int *tab, int q, int p) {
+	int i, j, x, w;
+	i = q;
+	j = p;
+	x = tab[(q+p)/2];
+
+	while (i <= j){
+		while (tab[i] < x) {
+			++i;
+		}
+		while (x < tab[j]) {
+			--j;
+		}
+		if (i <= j) {
+			w = tab[i];
+			tab[i] = tab[j];
+			tab[j] = w;
+
+			++i;
+			--j;
+		}
+	}
+	if (q < j) {
+		sortuj(tab, q, j);
+	}
+	if (i < p) {
+		sortuj(tab, i, p);
+	}
+}
+
+void zad8(int *a, int n) {
+	sortuj (a, 0, n-1);
+}
+
 
 int* randomTabInt(int sizeTab, int beginRange, int endRange){
 int* tab = new int[sizeTab];
