@@ -31,36 +31,22 @@ enum Menu{
 };
 
 Menu choiceOption(string input);
-//void printVector(vector<int> v);
 string retStringMenu(map<int, string> m);
 void printTab(int * tab, int sizeTab, string text);
 
 int main()
 {
-    //vector<int> v;
-
+    int sizeTab = 12,
+        beginRange = 0,
+        endRange = 120,
+        i = 0;
+    int *tab;
     bool loop = true;
-    int i = 0;
     string s, t;
     struct TEXT text;
     t= retStringMenu(text.menu);
-    //cout<< t << endl;
-    int sizeTab = 12,
-        beginRange = 0,
-        endRange = 120;
-    //int tab[sizeTab];
-    //delete[] tab;
 
-    int *tab;
-    //delete[] tab1;
-    //std::default_random_engine random_generator(std::chrono::steady_clock::now().time_since_epoch().count());
-    //std::uniform_int_distribution<int> distribution(beginRange, endRange);
-
-    //for(int i=0; i< sizeTab; i++){
-    //    tab[i] = distribution(random_generator);
-    //}
     while(loop){
-        //cout << text.menuTxt;
         cout << t;
 		cin >> s;
 		cin.ignore();
@@ -117,7 +103,6 @@ int main()
 			break;
 		}
 	}
-	//delete[] tab;
     return 0;
 }
 
@@ -131,15 +116,7 @@ Menu choiceOption(string input){
     if( input == "7" ) return Quit;
     return AnotherOption;
 }
-/*6
 
-void printVector(vector<int> v){
-    cout<<  "Vector: ";
-    for(int i: v){
-       cout<< i << " | " ;
-    }
-    cout<< endl;
-}*/
 void printTab(int * tab, int sizeTab, string text){
     cout<< text;
     for(int i=0; i<sizeTab; i++){
@@ -155,6 +132,5 @@ string retStringMenu(map<int, string> m){
     for(int i=1; i<= m.size(); i++){
         ss << " " << i << " -> " << m[i];
     }
-    //retVal += ss.str() +
     return retVal + ss.str() + "Wybor: ";
 }

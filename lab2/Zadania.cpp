@@ -12,7 +12,6 @@ using namespace std;
 
 struct TEXT{
 public:
-   static const string menuTxt;
    std::map<int, string> menu;
    TEXT(){
    this->menu[1] = "Sortowanie przez proste wstawianie\n";
@@ -25,16 +24,6 @@ public:
    }
 };
 
-const string TEXT::menuTxt = "\n=========================================\n \
-1 -> Sortowanie przez proste wstawianie\n \
-2 -> Sortowanie przez wstawianie polowkowe\n \
-3 -> Sortowanie przez proste wybieranie\n \
-4 -> Sortowanie babelkowe\n \
-5 -> Sortowanie mieszane\n \
-6 -> Sortowanie metoda Shella\n \
-7 -> Zamknij program\nWybor: ";
-
-
 vector <int> randomVector(int sizeTab, int beginRange, int endRange);
 int* randomTabInt(int sizeTab, int beginRange, int endRange);
 void zad1(int * tab, int sizeTab);
@@ -43,8 +32,6 @@ void zad3(int *tab, int sizeTab);
 void zad4(int *tab, int sizeTab);
 void zad5(int *tab, int sizeTab);
 void zad6(int *tab, int sizeTab);
-//void zad7();
-
 
 void zad1(int *tab, int sizeTab){
     int j=0, k=0;
@@ -164,22 +151,6 @@ void zad6(int *tab, int sizeTab){
 	}
 }
 
-/*
-vector <int> randomVector(int sizeVec, int beginRange, int endRange){
-
-vector <int> v;
-std::default_random_engine random_generator(std::chrono::steady_clock::now().time_since_epoch().count());
-std::uniform_int_distribution<int> distribution(beginRange, endRange);
-
-while(sizeVec > 0){
-    v.push_back(distribution(random_generator));
-    sizeVec--;
-}
-//for(int i: v){
-    //    cout<< i << endl;
-  //  }
-return v;
-}*/
 int* randomTabInt(int sizeTab, int beginRange, int endRange){
 int* tab = new int[sizeTab];
 std::default_random_engine random_generator(std::chrono::steady_clock::now().time_since_epoch().count());
@@ -188,8 +159,5 @@ std::uniform_int_distribution<int> distribution(beginRange, endRange);
 for(int i=0; i< sizeTab; i++){
     tab[i] = distribution(random_generator);
 }
-//for(int i: v){
-    //    cout<< i << endl;
-  //  }
 return tab;
 }
