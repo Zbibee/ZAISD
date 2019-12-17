@@ -9,6 +9,7 @@
 #include <typeinfo>
 #include <cmath>
 #include <vector>
+#include <sstream>
 
 #include "Zadania.cpp"
 
@@ -31,6 +32,7 @@ enum Menu{
 
 Menu choiceOption(string input);
 //void printVector(vector<int> v);
+string retStringMenu(map<int, string> m);
 void printTab(int * tab, int sizeTab, string text);
 
 int main()
@@ -39,8 +41,10 @@ int main()
 
     bool loop = true;
     int i = 0;
-    string s;
+    string s, t;
     struct TEXT text;
+    t= retStringMenu(text.menu);
+    //cout<< t << endl;
     int sizeTab = 12,
         beginRange = 0,
         endRange = 120;
@@ -56,7 +60,8 @@ int main()
     //    tab[i] = distribution(random_generator);
     //}
     while(loop){
-        cout << text.menuTxt;
+        //cout << text.menuTxt;
+        cout << t;
 		cin >> s;
 		cin.ignore();
         tab = randomTabInt(sizeTab, beginRange, endRange);
@@ -141,4 +146,15 @@ void printTab(int * tab, int sizeTab, string text){
        cout<< tab[i] << " | " ;
     }
     cout<< endl;
+}
+
+string retStringMenu(map<int, string> m){
+    string retVal = "\n=========================================\n";
+    char c[33];
+    stringstream ss;
+    for(int i=1; i<= m.size(); i++){
+        ss << " " << i << " -> " << m[i];
+    }
+    //retVal += ss.str() +
+    return retVal + ss.str() + "Wybor: ";
 }

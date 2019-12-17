@@ -34,8 +34,6 @@ const string TEXT::menuTxt = "\n=========================================\n \
 6 -> Sortowanie metoda Shella\n \
 7 -> Zamknij program\nWybor: ";
 
-//std::map<int, string> TEXT::menu[1] = "haha"; // {{1, "aha"}, {2, "dupa"}};
-
 
 vector <int> randomVector(int sizeTab, int beginRange, int endRange);
 int* randomTabInt(int sizeTab, int beginRange, int endRange);
@@ -112,7 +110,7 @@ void zad4(int *tab, int sizeTab){
 }
 void zad5(int *tab, int sizeTab){
     int j,k,q,p,x, obj;
-    q=1;
+    q=0;
     p=sizeTab;
     k=sizeTab;
 
@@ -125,24 +123,17 @@ void zad5(int *tab, int sizeTab){
     			k=j;
 			}
 		}
-
-		q = k+1;
-
+		q = k+1;//+1
 		for (j=q; j<=p; j++) {
 			if (tab[j-1] > tab[j]) {
 				obj = tab[j-1];
 				tab[j-1] = tab[j];
 				tab[j] = obj;
-
 				k=j;
 			}
 		}
-
-		p = k-1;
-
-	} while (q <= p);
-
-
+		p = k-1;//-1;//-1
+	} while (q < p);
 }
 
 void zad6(int *tab, int sizeTab){
